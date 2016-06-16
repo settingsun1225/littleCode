@@ -7,17 +7,17 @@
 chrome.omnibox.onInputChanged.addListener(
   function(text, suggest) {
     var suggestions = [];
-    if (text == 'p') {
-      suggestions.push({content: "http://woodpecker.org.cn/abyteofpython_cn/chinese/index.html", description: "python简明教程"});
-      suggestions.push({content: "http://learnpythonthehardway.org/book/", description: "learn python the hard way"});
+    if (text == 'd') {
+        suggestions.push({content: "http://www.365rili.com/main/calendar.do", description: "365万年历"});
+    } else if (text == 't') {
+        suggestions.push({content: "chrome://extensions", description: "chrome扩展工具"});
     } else if (text == 's') {
-      suggestions.push({content: "http://manual.51yip.com/shell/", description: "shell在线中文手册"});
-    } else if (text == 'n') {
-      suggestions.push({content: "http://tengine.taobao.org/book/index.html", description: "nginx开发入门"});
-    } else if (text == 'fe') {
-      suggestions.push({content: "http://www.douban.com/note/330647290/", description: "前端学习指导"});
-    } else {
-      suggestions.push({content: "", description:"没查到关联页面"});
+        suggestions.push({content: "http://explainshell.com/explain", description: "shell解释工具"});
+    } else if (text == 'uml') {
+        suggestions.push({content: "https://www.websequencediagrams.com/", description: "UML流程图"});
+        suggestions.push({content: "https://www.processon.com/", description:"UML图"});
+    } else if (text == 'evernote') {
+        suggestions.push({content: "https://app.yinxiang.com/", description: "印象笔记"});
     }
     chrome.omnibox.setDefaultSuggestion({description:suggestions[0].description});
     suggestions.shift();
@@ -33,16 +33,16 @@ chrome.omnibox.onInputEntered.addListener(
         if (text.substr(0, 7) == 'http://') {
             url = text;
         } else {
-            if (text == 'p') {
-              url = "http://woodpecker.org.cn/abyteofpython_cn/chinese/index.html";
+            if (text == 'd') {
+                 url = "http://www.365rili.com/main/calendar.do";
+            } else if (text == 't'){
+                 url = "chrome://extensions";
             } else if (text == 's') {
-              url = "http://manual.51yip.com/shell/";
-            } else if (text == 'n') {
-              url = "http://tengine.taobao.org/book/index.html";
-            } else if (text == 'fe') {
-              url = "http://www.douban.com/note/330647290/";
-            } else {
-              url = "http://www.chuanke.com/";
+                 url = "http://explainshell.com/";
+            } else if (text == 'uml') {
+                 url = "https://www.websequencediagrams.com/";
+            } else if (text == 'evernote') {
+                 url = "https://app.yinxiang.com/";
             }
         }
         chrome.tabs.update(tab.id, {url: url});
