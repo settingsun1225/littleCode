@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "version":"1.0",
+
+  "name": "读书",
+  "omnibox":{"keyword":"book"},
+  "icons":{
+    "16":"book.png"
+  },
+  "background":{
+    "persistent":false,
+    "scripts":["background.js"]
+  }
+}
